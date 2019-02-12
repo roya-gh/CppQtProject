@@ -41,3 +41,7 @@ target_wrapper.*
 
 # QtCreator CMake
 CMakeLists.txt.user*
+
+mainwindow.cpp
+mainwindow.h
+mainwindow.ui
