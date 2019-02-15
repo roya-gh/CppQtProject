@@ -30,10 +30,5 @@ SOURCES += \
 HEADERS += \
     window.h
 
-FORMS +=
-
-DISTFILES += \
-    InnerPage.qml
-
 RESOURCES += \
     resource.qrc

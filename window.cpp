@@ -10,7 +10,7 @@ Window::Window(QWidget* parent) :
     setWindowFlags(Qt::FramelessWindowHint);
 
     QQuickWidget* view = new QQuickWidget(this);
-    view->setSource(QUrl::fromLocalFile(":/qml/InnerPage.qml"));
+    view->setSource(QUrl("qrc:/qml/InnerPage.qml"));
     setCentralWidget(view);
 
     view->rootObject()->setProperty("height", this->height());
@@ -18,9 +18,9 @@ Window::Window(QWidget* parent) :
     QObject::connect(view->rootObject(), SIGNAL(openMenu(int, int)),
                      this, SLOT(slotOpenMenu(int, int)));
 
-    m_menu.addAction("Action0");
-    m_menu.addAction("Action1");
-    m_menu.addAction("Action3");
+    m_menu.addAction("Action 0");
+    m_menu.addAction("Action 1");
+    m_menu.addAction("Action 3");
 }
 
 
