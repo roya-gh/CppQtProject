@@ -2,6 +2,7 @@
 #define WINDOW_H
 
 #include <QMainWindow>
+#include <QMenu>
 
 class Window : public QMainWindow
 {
@@ -13,6 +14,8 @@ signals:
 
 public slots:
     void slotOpenMenu(int x, int y);
+private:
+    QMenu m_menu;
 };
 
 #endif // WINDOW_H

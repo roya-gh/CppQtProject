@@ -4,30 +4,28 @@
 #include <QQuickItem>
 #include <QMenu>
 
-Window::Window(QWidget* parent) : QMainWindow(parent) {
+Window::Window(QWidget* parent) :
+    QMainWindow(parent), m_menu("Menu",this){
 
     setWindowFlags(Qt::FramelessWindowHint);
 
     QQuickWidget* view = new QQuickWidget(this);
-    view->setSource(QUrl::fromLocalFile("../hayoolaQt/InnerPage.qml"));
+    view->setSource(QUrl::fromLocalFile(":/qml/InnerPage.qml"));
     setCentralWidget(view);
 
-    QObject* item = view->rootObject();
-    item->setProperty("height", this->height());
-    item->setProperty("width", this->width());
-
-    QObject::connect(item, SIGNAL(openMenu(int, int)),
+    view->rootObject()->setProperty("height", this->height());
+    view->rootObject()->setProperty("width", this->width());
+    QObject::connect(view->rootObject(), SIGNAL(openMenu(int, int)),
                      this, SLOT(slotOpenMenu(int, int)));
+
+    m_menu.addAction("Action0");
+    m_menu.addAction("Action1");
+    m_menu.addAction("Action3");
 }
 
 
 void Window::slotOpenMenu(int x, int y) {
-    QMenu* menu = new QMenu("File", this);
-    menu->addAction("Action0");
-    menu->addAction("Action1");
-    menu->addAction("Action3");
-    menu->move(x, y);
-    menu->show();
+    m_menu.move(x, y);
+    m_menu.show();
 }
-
 

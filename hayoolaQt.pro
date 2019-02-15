@@ -25,15 +25,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-    mainwindow.cpp \
     window.cpp
 
 HEADERS += \
-    mainwindow.h \
     window.h
 
-FORMS += \
-    mainwindow.ui
+FORMS +=
 
 DISTFILES += \
     InnerPage.qml
+
+RESOURCES += \
+    resource.qrc
